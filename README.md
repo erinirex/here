@@ -1,41 +1,62 @@
-# 此刻 · You don’t have to wait
+[English](README.md) | [简体中文](README.zh-CN.md)
 
-全球性骚扰与性暴力支持工作台的静态前端原型。默认英语，右上角可切换中文。手机与桌面适配，无依赖、无构建步骤。
+# Here
 
-## 本地预览
+**You don’t have to wait.**
 
-直接打开 `index.html`，或使用任意静态文件服务器。页面通过 hash 导航，适用于 GitHub Pages 项目子路径。所有资源路径均为相对路径。
+Here is a static frontend prototype for a global support workspace for people who have experienced sexual harassment or sexual violence. It helps users explore support, record their experience, and prepare a next step at their own pace.
 
-## 发布到 GitHub Pages
+The interface defaults to English and supports switching to Simplified Chinese. It works on desktop and mobile, with no dependencies or build step.
 
-1. 新建 GitHub 仓库，将此目录中的 `index.html`、`styles.css`、`i18n.js`、`app.js`、`mock-api.js`、`logo-cat.png` 和 `.nojekyll` 放在仓库根目录。
-2. 在仓库 Settings → Pages → Build and deployment 选择 Deploy from a branch。
-3. 选择 `main` 分支与 `/ (root)` 并保存。
-4. 等待 Pages 完成部署，打开页面中给出的地址。项目站点通常为 `https://用户名.github.io/仓库名/`。
+### Features
 
-本次交付没有创建仓库或发布线上页面。
+- Four views: start here, find support, my record, and my next step.
+- Separate current-location and incident-location fields. Locations change demo labels only; no local matching is performed.
+- Support categories, bilingual keyword search, loading states, and empty results.
+- Session-only records, confirmation before clearing, and text downloads.
+- Three draft goals: ask about support, ask about a complaint or report, and request an everyday adjustment.
+- Editable bilingual draft templates and a simulated submission preview after review.
+- Privacy information, semantic navigation, keyboard focus, and a kitten logo.
 
-## 已实现
+### Local preview
 
-- 四个入口：首页、支持资源、事件记录、行动材料。
-- 当前地区与事件地区独立选择（地区仅改变演示标签）。
-- 支持类别筛选、关键词搜索、加载与空结果状态。
-- 当前会话记录、清除确认、文本下载。
-- 三种行动目标、可编辑草稿、确认后模拟结果预览。
-- 隐私说明、语义导航与键盘焦点。
+Open `index.html` directly, or serve this folder with any static web server. Navigation uses URL hashes, and asset paths are relative, so the site can run under a GitHub Pages project path.
 
-## API 替换边界
+### Deploy to GitHub Pages
 
-`mock-api.js` 提供 `searchResources`、`prepareDraft`、`simulateSubmission` 三个异步方法；现有实现完全在浏览器运行。
+1. Put `index.html`, `styles.css`, `i18n.js`, `app.js`, `mock-api.js`, `logo-cat.png`, and `.nojekyll` in the repository root.
+2. Open **Settings → Pages → Build and deployment** and select **Deploy from a branch**.
+3. Select the `main` branch and `/ (root)`, then save.
+4. Wait for deployment and open the URL shown by GitHub Pages. For the `erinirex/here` repository, the project URL is `https://erinirex.github.io/here/` when Pages is enabled and deployment succeeds.
 
-真实接入时通过后端代理访问服务，不得将 API 密钥写入前端或 GitHub 仓库。替换模拟提交时，必须重新设计接收方选择、资料披露范围、授权、重复提交保护与真实回执状态。资源须独立审核来源、当地适用性和有效期；本原型没有真实法律或医疗服务数据。
+### Project files
 
-## 数据与限制
+| File | Purpose |
+| --- | --- |
+| `index.html` | Page shell, navigation, and dialogs |
+| `styles.css` | Visual design and responsive layout |
+| `app.js` | Views, in-memory state, forms, and downloads |
+| `i18n.js` | English and Simplified Chinese interface copy |
+| `mock-api.js` | Mock search, bilingual draft templates, and submission simulation |
+| `logo-cat.png` | Kitten logo and browser icon |
+| `.nojekyll` | Disables Jekyll processing for static hosting |
 
-语言切换保留表单内容，用户原话和已编辑的草稿不会被自动翻译。新草稿使用生成时的界面语言；如需另一种语言的模板，切换语言后重新生成。语言偏好不持久化，刷新回到英语。`i18n.js` 管理界面词典，`mock-api.js` 提供双语模板。
+### Connecting real APIs
 
-输入只在 JS 内存中保留，无 localStorage、cookie、数据库或网络上传。刷新后丢失。用户主动下载的文件会持久留在设备上。托管平台仍可能记录普通访问日志。
+`mock-api.js` exposes three asynchronous methods: `searchResources`, `prepareDraft`, and `simulateSubmission`. All currently run in the browser without backend requests.
 
-没有真实翻译、AI、账户、附件上传、紧急呼叫或机构对接。不要用此演示处理真实个案。所有服务卡片均为显式占位。
+Use a backend proxy when connecting real services. Never put secret API keys in frontend files or the repository. Before replacing simulated submission, implement recipient selection, disclosure controls, explicit authorization, duplicate-submission protection, and accurate receipt states. Independently verify resource sources, local applicability, and freshness. This prototype contains no real legal or medical service directory.
 
-浏览器如支持 `document.modelContext`，可选择启用页面内导航工具；不暴露经历读取或提交工具。不支持时正常运行。
+### Language behavior
+
+Switching languages preserves form entries. Original records and edited drafts are not automatically translated. New drafts use the interface language selected when generation begins. To use the other template language, switch languages and regenerate the draft; regenerating replaces the existing draft and its edits.
+
+Language preferences are not saved; refreshing returns the interface to English.
+
+### Privacy and limitations
+
+Entries remain in JavaScript memory only. The application does not use localStorage, cookies, a database, analytics, or network uploads for entries. Refreshing or closing the page clears session records. Files explicitly downloaded by the user remain on the device. The hosting provider may still retain ordinary access logs.
+
+All resource cards are labeled placeholders. Search, drafting, and submission are simulated. There is no live AI, translation service, account system, attachment upload, emergency calling, or provider integration. The prototype is not intended to handle real cases or provide emergency assistance.
+
+Browsers supporting `document.modelContext` can expose an in-page navigation tool. It does not expose private-record reading or submission tools. Other browsers work normally.
