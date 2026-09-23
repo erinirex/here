@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="You don’t have to wait. Explore support, record your experience and prepare your next step at your own pace. Bilingual frontend demo.">
+  <meta name="referrer" content="no-referrer">
+  <title>Here · You don’t have to wait</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23193934'/%3E%3Cpath d='M10 24V14h5v10m5 0V10h5v14m5 0V17h3v7' stroke='%23e4efad' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./i18n.js"></script><script defer src="./mock-api.js"></script><script defer src="./app.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">此</span><span>此刻<span class="brand-en">HERE FOR YOU</span></span></a>
+    <div class="side-label">你的支持空间</div>
+    <nav aria-label="主导航">
+      <a href="#home" data-nav="home"><span aria-hidden="true">⌂</span>从这里开始</a>
+      <a href="#support" data-nav="support"><span aria-hidden="true">◎</span>寻找支持</a>
+      <a href="#record" data-nav="record"><span aria-hidden="true">▤</span>记录我的经历</a>
+      <a href="#action" data-nav="action"><span aria-hidden="true">↗</span>我的下一步</a>
+    </nav>
+    <div class="sidebar-bottom"><div class="little-flower" aria-hidden="true">✳</div><p>每一步，<br>都由你决定。</p><span>不必一次完成所有事。</span><button class="text-button privacy-button">关于隐私与演示</button></div>
+  </aside>
+  <div class="shell">
+    <header class="topbar"><span class="breadcrumb">你的节奏，你的选择</span><div class="top-actions"><button id="language-toggle" class="language-button" aria-label="切换到中文">中文</button><button id="region-button" class="region-button">◎ <span id="region-label">选择所在地</span>⌄</button><button id="quick-exit" class="exit-button">快速离开 ↗</button></div></header>
+    <main id="main" tabindex="-1"></main>
+    <footer><span>此刻 · You don’t have to wait.</span><button class="text-button privacy-button">前端演示 · 无真实提交</button></footer>
+  </div>
+  <dialog id="region-dialog"><form id="region-form"><div class="dialog-top"><span class="eyebrow">LOCAL SUPPORT</span><button type="button" class="icon-button close-dialog" aria-label="关闭地区选择">×</button></div><h2>让支持更靠近你</h2><p>由你选择地区，不会自动获取定位。跨境经历可分别填写。</p><label for="current-region">你现在所在的国家或地区</label><select id="current-region"><option value="">暂不选择</option><option>中国大陆</option><option>中国香港</option><option>中国台湾</option><option>美国</option><option>英国</option><option>加拿大</option><option>澳大利亚</option><option>新加坡</option><option>日本</option><option>其他国家或地区</option></select><label for="incident-region">事情发生的国家或地区（可选）</label><input id="incident-region" placeholder="例如：法国，或线上"><p class="note">演示中仅改变地区标签；资源和流程均为占位示例。</p><button class="primary" type="submit">应用选择 →</button></form></dialog>
+  <dialog id="info-dialog"><div class="dialog-top"><span class="eyebrow">YOUR CHOICE</span><button class="icon-button close-dialog" aria-label="关闭说明">×</button></div><div id="info-content"></div></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body></html>
