@@ -1,20 +1,10 @@
 /* API boundary: replace these methods with server calls when a backend is ready.
  * No requests, analytics, browser persistence, or external submissions occur here. */
 window.supportAPI = (() => {
-  const resources = [
-    {id:'support',category:'情绪支持',title:'找一个愿意听你说的人',description:'了解支持热线、专业辅导与陪伴服务。你可以先询问保密范围，再决定分享多少。',tags:['可以先咨询','语言待确认'],kind:'支持服务占位'},
-    {id:'medical',category:'医疗帮助',title:'了解当地医疗支持',description:'准备向当地专业医疗人员询问身体照护、检查与相关服务。部分照护有时间要求，请及时联系专业人员。',tags:['费用待核实','服务待接入'],kind:'医疗服务占位'},
-    {id:'legal',category:'法律咨询',title:'先弄清楚自己的选择',description:'准备咨询问题，了解可能的渠道、材料和程序。是否继续，由你决定。',tags:['无需先决定报案','适用性待核实'],kind:'法律服务占位'},
-    {id:'daily',category:'生活支持',title:'给日常生活留一点空间',description:'准备请假、课程延期或工作调整的请求。可以不披露事件细节。',tags:['低披露版本','可生成草稿'],kind:'生活支持占位'}
-  ];
+
   const delay = () => new Promise(resolve => setTimeout(resolve,450));
   return {
-    async searchResources({query='',category='全部',region=''}) {
-      await delay();
-      const aliases={医院:'医疗',医生:'医疗',心理:'情绪',律师:'法律',报警:'法律',请假:'生活',学校:'生活',工作:'生活',medical:'医疗',doctor:'医疗',hospital:'医疗',legal:'法律',lawyer:'法律',report:'法律',emotional:'情绪',counseling:'情绪',therapy:'情绪',leave:'生活',work:'生活',school:'生活'};
-      const q=aliases[query.trim().toLowerCase()]||query.trim().toLowerCase();
-      return resources.filter(r => (category==='全部'||r.category===category)&&(!q||`${r.title}${r.description}${r.category}${window.uiCopy?.[r.title]||''}${window.uiCopy?.[r.description]||''}${window.uiCopy?.[r.category]||''}`.toLowerCase().includes(q))).map(r=>({...r,region:region||'地区未选择',verified:false}));
-    },
+    async searchResources(options) { return window.directorySearch(options); },
     async prepareDraft({record,region,incidentRegion,goal}) {
       const language=window.uiLanguage||'en';
       await delay();
