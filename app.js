@@ -33,7 +33,7 @@ function render(){requestId++;const route=location.hash.slice(1).split('?')[0]||
 document.querySelector('#region-button').onclick=region;
 document.querySelectorAll('.close-dialog').forEach(b=>b.onclick=()=>b.closest('dialog').close());
 document.querySelector('#region-form').onsubmit=e=>{e.preventDefault();state.region=document.querySelector('#current-region').value;state.resourceRegion='';state.incidentRegion=document.querySelector('#incident-region').value;invalidateDraft();document.querySelector('#region-label').textContent=state.region||'选择所在地';document.querySelector('#region-dialog').close();render();toast('已更新地区，将筛选相应资源。');};
-document.querySelectorAll('.privacy-button').forEach(b=>b.onclick=()=>info('<h2>关于这个演示</h2><p>资源链接是真实机构入口；草稿生成与提交仍为模拟。</p><ul class="dialog-list"><li>输入仅保留在当前页面内存中，刷新或关闭会丢失。</li><li>下载的文件会留在你的设备上。</li><li>资源页提供真实机构链接，但不是完整名单或实时服务保证。</li></ul>'));
+document.querySelectorAll('.privacy-button').forEach(b=>b.onclick=()=>info('<h2>关于这个演示</h2><p>资源链接是真实机构入口；草稿生成与提交仍为模拟。</p><ul class="dialog-list"><li>输入仅保留在当前页面内存中，刷新或关闭会丢失。</li><li>下载的文件会留在你的设备上。</li><li>GoatCounter 基础统计默认开启，可在页脚关闭，并尊重浏览器 DNT/GPC。不发送记录、搜索或地区选择。服务会接收网络与设备信息；公开展示汇总计数，可在页脚停止。</li><li>资源页提供真实机构链接，但不是完整名单或实时服务保证。</li></ul>'));
 window.addEventListener('pagehide',()=>{state.record={date:'',place:'',story:''};invalidateDraft();document.querySelectorAll('input,textarea').forEach(el=>el.value='');});
 window.addEventListener('pageshow',e=>{if(e.persisted)render();});
 window.addEventListener('hashchange',()=>{if(location.hash.includes('category=legal')){state.category='法律咨询';state.query='';}render();main.focus({preventScroll:true});window.scrollTo(0,0);});

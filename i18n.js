@@ -111,3 +111,8 @@ Object.assign(window.uiCopy,{
   "报案、投诉、诉讼和证据保留分别核实。这里没有验证当地期限，不应将演示当作时间建议。": "Reporting, complaints, court proceedings and evidence retention need separate checks. Local deadlines are not verified here; this demo is not timing advice.",
   "我的下一步": "Take action"
 });
+
+Object.assign(window.uiCopy,{"输入仅保留在当前页面内存中，刷新或关闭会丢失。":"Entries stay in this page’s memory and are lost on refresh or close."});
+
+
+Object.assign(window.uiCopy,{"GoatCounter 基础统计默认开启，可在页脚关闭，并尊重浏览器 DNT/GPC。不发送记录、搜索或地区选择。服务会接收网络与设备信息；公开展示汇总计数，可在页脚停止。":'Basic GoatCounter statistics are on by default. Turn them off in the footer; browser DNT/GPC is respected. No records, searches or region choices are sent. The service receives network/device information; public counters show totals. Stop via the footer.'});

@@ -2,6 +2,15 @@
 
 # Here
 
+<!-- metrics:start -->
+[![Website views](https://erinxia.goatcounter.com/counter/%2Fhere.svg)](https://erinxia.goatcounter.com/)
+[![Button and link clicks](https://erinxia.goatcounter.com/counter/click.svg)](https://erinxia.goatcounter.com/)
+
+Basic aggregate statistics. Counter images may lag up to four hours, plus GitHub caching; visitor estimates are available in the dashboard.
+
+[Statistics setup](analytics/README.md)
+<!-- metrics:end -->
+
 **You don’t have to wait.**
 
 Here is a static frontend prototype for a global support workspace for people who have experienced sexual harassment or sexual violence. Its core idea: you should not have to feel emotionally ready, reconstruct every memory, or navigate procedures alone before beginning to seek justice. The action-first workspace reuses partial records and prepares inquiry drafts while keeping disclosure and submission decisions with the user.
@@ -57,7 +66,7 @@ Language preferences are not saved; refreshing returns the interface to English.
 
 ### Privacy and limitations
 
-Entries remain in JavaScript memory only. The application does not use localStorage, cookies, a database, analytics, or network uploads for entries. Refreshing or closing the page clears session records. Files explicitly downloaded by the user remain on the device. The hosting provider may still retain ordinary access logs.
+Entries remain in JavaScript memory only. Private entries are not stored in localStorage, cookies or a server database, and are not uploaded. GoatCounter analytics loads by default, unless disabled or blocked by DNT/GPC. Only the on/off preference is stored by our analytics code; the service receives network/device information. Refreshing or closing the page clears session records. Files explicitly downloaded by the user remain on the device. The hosting provider may still retain ordinary access logs.
 
 Resource cards link to reviewed government and provider sources. Search filters the static directory locally; drafting and submission remain simulated. There is no live AI, translation service, account system, attachment upload, emergency calling, or provider integration. The prototype is not intended to handle real cases or provide emergency assistance.
 
@@ -66,3 +75,7 @@ Browsers supporting `document.modelContext` can expose an in-page navigation too
 ## Regional resource directory
 
 `resources.js` now contains 19 reviewed official/provider resources covering 8 regions, including one global directory entry. It is a curated, non-exhaustive static dataset reviewed on 2026-09-23, not a real-time search API or availability check. Resource search works locally and does not transmit incident records. Users can filter by current or incident location, category and bilingual keywords. External links have independent privacy policies. Drafting and submission remain simulated. 
+
+## Optional aggregate analytics
+
+GoatCounter is configured to run by default after publication, respecting DNT/GPC. Only a fixed page name and generic click event are sent, never narratives, searches, region choices, referrers or resource names. Visitors are service estimates, not people. Stop via the footer. README counters display views and clicks; visitor estimates remain in the dashboard. Never publish API keys. See [setup](analytics/README.md).
